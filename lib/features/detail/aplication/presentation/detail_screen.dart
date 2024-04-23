@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hp_api/features/detail/aplication/providers/detail_provider.dart';
 
+import '../../../../core/domain/user_model.dart';
+
 class DetailScreen extends ConsumerWidget {
   final String idUser;
   const DetailScreen({super.key, required this.idUser});
@@ -14,17 +16,6 @@ class DetailScreen extends ConsumerWidget {
       body: Center(
         child: user.when(
           data: (data) {
-            final studentHowarts =
-                data.hogwartsStudent ? 'Howarts student' : '';
-            final hairColor = data.hairColour != ''
-                ? 'hair color is ${data.hairColour}'
-                : data.hairColour;
-            final eyesColor = data.eyeColour != ''
-                ? 'eyes color is ${data.eyeColour}'
-                : data.eyeColour;
-            final wandWood = data.wand.wood != ''
-                ? 'The wood is ${data.wand.wood}'
-                : data.wand.wood;
             return SizedBox(
               width: 400,
               child: Card(
@@ -39,8 +30,9 @@ class DetailScreen extends ConsumerWidget {
                       Text('Acestry: ${data.ancestry}'),
                       Text('House: ${data.house}'),
                       Text(
-                          'General characteristics: $studentHowarts, $hairColor, $eyesColor.'),
-                      Text('Wand charecteristics: $wandWood')
+                          'General characteristics: ${_formatStudentStatus(data.hogwartsStudent)}, ${_formatHairColor(data.hairColour)}, ${_formatEyeColor(data.eyeColour)}.'),
+                      Text(
+                          'Wand charecteristics: ${_formatWandWood(data.wand)}')
                     ],
                   ),
                 ),
@@ -54,3 +46,15 @@ class DetailScreen extends ConsumerWidget {
     );
   }
 }
+
+String _formatHairColor(String color) =>
+    color.isNotEmpty ? 'hair color is $color' : '';
+
+String _formatEyeColor(String color) =>
+    color.isNotEmpty ? 'eyes color is $color' : '';
+
+String _formatWandWood(Wand wand) =>
+    wand.wood.isNotEmpty ? 'The wood is ${wand.wood}' : '';
+
+String _formatStudentStatus(bool isStudent) =>
+    isStudent ? 'Howarts student' : '';
