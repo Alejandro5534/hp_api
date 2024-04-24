@@ -1,16 +1,34 @@
-# hp_api
+# Harry Potter API, Flutter App
 
-A new Flutter project.
+## Overview
 
-## Getting Started
+This Flutter application is a simple two-screen app that displays a list of characters fetched from a RESTful API. Tapping on a list item reveals detailed information about the character.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **Dynamic List**: Fetches and displays a list of characters from a RESTful API.
+- **Detailed View**: Offers a detailed view for each character upon item tap.
+- **State Management**: Utilizes `riverpod` for state management with annotations.
+- **Navigation**: Employs `go_router` for intuitive and declarative routing.
+- **Architecture**: Implements clean architecture with vertical slicing for scalable app development.
+- **Dependency Injection**: Leverages `riverpod` for dependency injection, maintaining modularity.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Stack
+
+Comfortable with a stack that integrates:
+- `riverpod` annotations for state management.
+- `go_router` for navigation.
+- Clean architecture principles for structuring the project.
+
+## UI/UX
+
+The current implementation focuses on functionality over UI/UX design, adhering to standard UI components for simplicity and reliability.
+
+## Dependencies
+
+For a full list of dependencies, please refer to the `pubspec.yaml` file.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE.txt file for details.
