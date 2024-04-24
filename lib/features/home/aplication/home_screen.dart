@@ -12,17 +12,25 @@ class HomeScreen extends ConsumerWidget {
     final userFetch = ref.watch(userFetchProvider);
     final router = ref.watch(routerProvider);
     return Scaffold(
+      appBar: AppBar(
+        title: const Center(
+            child: Text(
+          'Harry Potter API',
+          style: TextStyle(fontSize: 13),
+        )),
+      ),
       body: userFetch.when(
         data: (data) => ListView.builder(
           itemCount: data.length,
           itemBuilder: (context, index) {
             final user = data[index];
             return ListTile(
-              leading: user.image == null || user.image == ''
+              leading: user.image == ''
                   ? const Icon(Icons.people)
-                  : Image.network(user.image!),
-              title: Text('Character: ${user.name} '),
-              subtitle: Text(user.ancestry ?? 'Ancestry Undefinded'),
+                  : Image.network(user.image),
+              title: Text('Character: ${user.name} Actor name: ${user.actor}'),
+              subtitle: Text(
+                  '${user.house} ${user.ancestry == '' ? 'Ancestry Undefinded' : user.ancestry}'),
               onTap: () {
                 router.go('/detail/${user.id}');
               },
@@ -30,7 +38,7 @@ class HomeScreen extends ConsumerWidget {
           },
         ),
         error: (error, stackTrace) => Text('Error: $error'),
-        loading: () => const CircularProgressIndicator(),
+        loading: () => const Center(child: CircularProgressIndicator()),
       ),
     );
   }

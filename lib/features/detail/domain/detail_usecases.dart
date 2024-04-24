@@ -1,5 +1,5 @@
 import 'package:hp_api/features/detail/data/detail_repository.dart';
-import 'package:hp_api/features/home/data/user_model.dart';
+import 'package:hp_api/core/domain/user_model.dart';
 
 class GetDetail {
   final DetailRepository repository;

@@ -1,6 +1,6 @@
 import 'package:hp_api/core/data/dio_client.dart';
 import 'package:hp_api/features/detail/data/detail_api.dart';
-import 'package:hp_api/features/home/data/user_model.dart';
+import 'package:hp_api/core/domain/user_model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'detail_repository.g.dart';

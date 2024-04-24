@@ -1,4 +1,4 @@
-import 'package:hp_api/features/home/data/user_model.dart';
+import 'package:hp_api/core/domain/user_model.dart';
 import 'package:hp_api/features/home/data/users_repository.dart';
 import 'package:hp_api/features/home/domain/users_usecase.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';

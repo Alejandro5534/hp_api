@@ -8,7 +8,7 @@ class UserModel {
   final String gender;
   final String house;
   final String? dateOfBirth;
-  final int yearOfBirth;
+  final int? yearOfBirth;
   final bool wizard;
   final String ancestry;
   final String eyeColour;
